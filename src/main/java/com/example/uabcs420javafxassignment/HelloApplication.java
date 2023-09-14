@@ -9,7 +9,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
-    private TextArea duplicateMessageTextArea;
+    private TextArea messageTextArea2;
     private ComboBox<String> dropdown;
     private ComboBox<String> colorDropdown;
     private Button changeColorButton;
@@ -27,52 +27,52 @@ public class HelloApplication extends Application {
         messageTextArea.setPrefWidth(200); // Adjust the width
         messageTextArea.setPrefHeight(350); // Adjust the height (slightly shorter)
 
-        // Create UI elements for the second screen (duplicate)
-        duplicateMessageTextArea = new TextArea();
-        duplicateMessageTextArea.setPrefWidth(200); // Adjust the width
-        duplicateMessageTextArea.setPrefHeight(400); // Adjust the height
+        // Create UI elements for the second screen
+        messageTextArea2 = new TextArea();
+        messageTextArea2.setPrefWidth(200); // Adjust the width
+        messageTextArea2.setPrefHeight(400); // Adjust the height
 
         dropdown = new ComboBox<>();
         Button selectButton = new Button("Select");
         Button deleteButton = new Button("Delete");
 
-        // Populate the dropdown with options for the second screen (duplicate)
-        dropdown.getItems().addAll("Option A", "Option B");
+        // Populate the dropdown with options
+        dropdown.getItems().addAll("Option 1", "Option 2");
 
-        // Event handling for the Select button on the second screen (duplicate)
+        // Event handling for the Select button
         selectButton.setOnAction(e -> {
             String selectedOption = dropdown.getValue();
             if (selectedOption != null) {
-                duplicateMessageTextArea.appendText(selectedOption + " selected\n");
+                messageTextArea2.appendText(selectedOption + " selected\n");
             }
         });
 
-        // Event handling for the Delete button on the second screen (duplicate)
+        // Event handling for the Delete button
         deleteButton.setOnAction(e -> {
             String selectedOption = dropdown.getValue();
             if (selectedOption != null) {
-                duplicateMessageTextArea.appendText(selectedOption + " deleted\n");
+                messageTextArea2.appendText(selectedOption + " deleted\n");
             }
         });
 
-        // Create labels for both screens
+        // Create labels
         Label label1 = new Label("Farm Items");
         Label label2 = new Label("Messages");
 
-        // Create a VBox to hold the label and the first screen
+        // Create a VBox to hold the label
         VBox vbox = new VBox(10);
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().addAll(label1, messageTextArea);
 
         // Create a VBox for the second screen
-        VBox duplicateVBox = new VBox(10);
-        duplicateVBox.setAlignment(Pos.CENTER);
-        duplicateVBox.getChildren().addAll(label2, duplicateMessageTextArea, dropdown, selectButton, deleteButton);
+        VBox vbox2 = new VBox(10);
+        vbox2.setAlignment(Pos.CENTER);
+        vbox2.getChildren().addAll(label2, messageTextArea2, dropdown, selectButton, deleteButton);
 
         // Create an HBox to hold both screens side by side
         HBox hbox = new HBox(20);
         hbox.setAlignment(Pos.CENTER);
-        hbox.getChildren().addAll(vbox, duplicateVBox);
+        hbox.getChildren().addAll(vbox, vbox2);
 
         // Create a VBox for the color change section
         VBox colorChangeVBox = new VBox(10);
@@ -88,7 +88,7 @@ public class HelloApplication extends Application {
         changeColorButton.setOnAction(e -> {
             String selectedColor = colorDropdown.getValue();
             if (selectedColor != null) {
-                // Change the background color of the button based on the selection
+                // Change the color of the button based on the selection
                 switch (selectedColor) {
                     case "Red" -> changeColorButton.setStyle("-fx-background-color: red;");
                     case "Green" -> changeColorButton.setStyle("-fx-background-color: green;");
