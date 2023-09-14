@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class HelloApplication extends Application {
+public class JavaFXAssignment extends Application {
     private TextArea messageTextArea2;
     private ComboBox<String> dropdown;
     private ComboBox<String> colorDropdown;
