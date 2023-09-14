@@ -64,7 +64,7 @@ public class HelloApplication extends Application {
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().addAll(label1, messageTextArea);
 
-        // Create a VBox for the second screen (duplicate) with dropdown and buttons
+        // Create a VBox for the second screen
         VBox duplicateVBox = new VBox(10);
         duplicateVBox.setAlignment(Pos.CENTER);
         duplicateVBox.getChildren().addAll(label2, duplicateMessageTextArea, dropdown, selectButton, deleteButton);
